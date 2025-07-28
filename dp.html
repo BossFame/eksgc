@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Flyer Customizer</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(to bottom right,  #f7d77e, #fbc44e);
+      padding: 1rem;
+      margin: 0;
+    }
+
+    h2 {
+      background-color: #08025e;
+      color: white;
+      padding: 5px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 420px;
+      text-align: center;
+    }
+
+    .flyer-frame {
+      width: 100%;
+      height: auto;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    canvas {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    input, button {
+      width: 95%;
+      padding: 0.5rem;
+      margin-bottom: 0.4rem;
+      font-size: 0.9rem;
+      border-radius: 5px;
+    }
+
+    button {
+      background-color: rgb(1, 1, 34);
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: red;
+    }
+
+    /* Scrolling bar styles */
+    #animate {
+      width: 100vw;
+      height: 30px;
+      background-color: red;
+      overflow: hidden;
+      position: relative;
+      margin-bottom: 1rem;
+    }
+
+#dash2 {
+  position: absolute;
+  
+  white-space: nowrap;
+  color: white;
+  margin-top: auto;
+  padding-left: 100%;
+  animation: scroll-right 15s linear infinite;
+  font-size: 14px;
+  /* height: 30px; */
+  line-height: 30px; /* vertically center it inside 30px bar */
+  display: flex;
+  align-items: center;
+  font-weight: 550;
+  font-family: Arial, poppins, sans-serif;
+}
+
+
+    @keyframes scroll-right {
+      0% {
+        transform: translateX(0%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+  </style>
+</head>
+<body>
+  <h2>CUSTOMIZE YOUR DP</h2>
+  <div id="animate">
+    <p id="dash2">
+      EKITI SOUTH GROUP COUNCIL CAMP & COMPETITIONS &nbsp;&nbsp; &nbsp;&nbsp;* &nbsp;&nbsp;&nbsp;&nbsp;
+      EKITI SOUTH GROUP COUNCIL CAMP & COMPETITIONS &nbsp;&nbsp; &nbsp;&nbsp; * &nbsp;&nbsp;&nbsp;&nbsp;
+      EKITI SOUTH GROUP COUNCIL CAMP & COMPETITIONS &nbsp;&nbsp;&nbsp;&nbsp; * &nbsp;&nbsp;&nbsp;&nbsp;
+      EKITI SOUTH GROUP COUNCIL CAMP & COMPETITIONS &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+      
+    </p>
+  </div>
+
+  <div class="container">
+    
+    <div class="flyer-frame">
+      <canvas id="flyerCanvas" width="1080" height="1080"></canvas>
+      <input type="file" id="photoInput" accept="image/*" />
+      <input type="text" id="nameInput" placeholder="Enter Your Name" />
+    </div>
+    <button id="downloadBtn">Generate DP</button>
+  </div>
+
+  <script type="text/javascript" src="dp.js"></script>
+</body>
+</html>
