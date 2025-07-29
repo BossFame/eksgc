@@ -10,49 +10,117 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 20px;
-      background: #f0f0f0;
+      min-height: 100vh;
+      background: linear-gradient(to bottom right,  #f7d77e, #fbc44e);
+      padding: 1rem;
+      margin: 0;
     }
-    canvas {
-      border: 2px solid #000;
-      margin-top: 20px;
+
+    h2 {
+      background-color: #08025e;
+      color: white;
+      padding: 5px;
     }
-    #whatsapp-share {
-      margin-top: 20px;
-      display: none;
+
+    .container {
+      width: 100%;
+      max-width: 420px;
       text-align: center;
     }
-    #whatsapp-share a {
-      display: inline-block;
-      padding: 12px 20px;
-      background-color: #25D366;
-      color: white;
+
+    .flyer-frame {
+      width: 100%;
+      height: auto;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    canvas {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    input, button {
+      width: 95%;
+      padding: 0.5rem;
+      margin-bottom: 0.4rem;
+      font-size: 0.9rem;
       border-radius: 5px;
-      text-decoration: none;
-      font-weight: bold;
+    }
+
+    button {
+      background-color: rgb(1, 1, 34);
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: red;
+    }
+
+    /* Scrolling bar styles */
+    #animate {
+      width: 100vw;
+      height: 30px;
+      background-color: red;
+      overflow: hidden;
+      position: relative;
+      margin-bottom: 1rem;
+    }
+
+#dash2 {
+  position: absolute;
+  
+  white-space: nowrap;
+  color: white;
+  margin-top: auto;
+  padding-left: 100%;
+  animation: scroll-right 15s linear infinite;
+  font-size: 14px;
+  /* height: 30px; */
+  line-height: 30px; /* vertically center it inside 30px bar */
+  display: flex;
+  align-items: center;
+  font-weight: 550;
+  font-family: Arial, poppins, sans-serif;
+}
+
+
+    @keyframes scroll-right {
+      0% {
+        transform: translateX(0%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
     }
   </style>
 </head>
 <body>
-  <h2>Flyer Customizer</h2>
-
-  <input type="text" id="nameInput" placeholder="Enter your name" />
-  <input type="file" id="imageInput" accept="image/*" />
-  <button onclick="generateFlyer()">Generate Flyer</button>
-
-  <canvas id="flyerCanvas" width="500" height="500"></canvas>
-
-  <a id="downloadLink" style="display:none;" download="flyer.png">Download Flyer</a>
-
-  <div id="whatsapp-share">
-    <p>🎉 Your flyer has been created!</p>
-    <p>✅ Click the button below to send it to us via WhatsApp.<br>
-       📎 Don't forget to attach your downloaded flyer.</p>
-    <a href="https://wa.me/2347036415305?text=Hi%2C%20I%20just%20created%20my%20fdp.%20Here%20it%20is." 
-       target="_blank"> Send to WhatsApp
-    </a>
+  <h2>CUSTOMIZE YOUR DP</h2>
+  <div id="animate">
+    <p id="dash2">
+      EKITI SOUTH GROUP COUNCIL CAMP & COMPETITIONS &nbsp;&nbsp; &nbsp;&nbsp;* &nbsp;&nbsp;&nbsp;&nbsp;
+      EKITI SOUTH GROUP COUNCIL CAMP & COMPETITIONS &nbsp;&nbsp; &nbsp;&nbsp; * &nbsp;&nbsp;&nbsp;&nbsp;
+      EKITI SOUTH GROUP COUNCIL CAMP & COMPETITIONS &nbsp;&nbsp;&nbsp;&nbsp; * &nbsp;&nbsp;&nbsp;&nbsp;
+      EKITI SOUTH GROUP COUNCIL CAMP & COMPETITIONS &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+      
+    </p>
   </div>
 
-  <script src="dp.js"></script>
+  <div class="container">
+    
+    <div class="flyer-frame">
+      <canvas id="flyerCanvas" width="1080" height="1080"></canvas>
+      <input type="file" id="photoInput" accept="image/*" />
+      <input type="text" id="nameInput" placeholder="Enter Your Name" />
+    </div>
+    <button id="downloadBtn">Generate DP</button>
+  </div>
+
+  <script type="text/javascript" src="dp.js"></script>
 </body>
 </html>
